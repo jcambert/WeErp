@@ -1,0 +1,14 @@
+{
+  "generator-micros": {
+    "domain": [
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "value",
+        "type": "int"
+      }
+    ]
+  }
+}

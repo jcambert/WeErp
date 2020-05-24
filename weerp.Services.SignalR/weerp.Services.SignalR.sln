@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "weerp.Services.SignalR", "src\weerp.Services.SignalR\WeErp.Services.SignalR.csproj", "{C99EAD62-0926-4A75-95D9-59443581FFE8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroS-Common", "..\MicroS-Common\src\MicroS-Common\MicroS-Common.csproj", "{73A8C59C-5F2D-4F5F-BE76-5267683C3DCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C99EAD62-0926-4A75-95D9-59443581FFE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C99EAD62-0926-4A75-95D9-59443581FFE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C99EAD62-0926-4A75-95D9-59443581FFE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C99EAD62-0926-4A75-95D9-59443581FFE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73A8C59C-5F2D-4F5F-BE76-5267683C3DCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73A8C59C-5F2D-4F5F-BE76-5267683C3DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73A8C59C-5F2D-4F5F-BE76-5267683C3DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73A8C59C-5F2D-4F5F-BE76-5267683C3DCA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EAA7FA99-650E-4AC9-A406-2972152F0FCD}
+	EndGlobalSection
+EndGlobal

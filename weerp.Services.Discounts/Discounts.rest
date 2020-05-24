@@ -1,0 +1,9 @@
+@url = http://localhost:31396
+
+### create discount 
+POST {{url}}/discounts HTTP/1.1
+content-type: application/json
+
+{
+"customerId": "ba0fbaf3-cba1-40e1-8000-73a8ab1135a9", "code": "PROMO", "percentage": 20
+}
