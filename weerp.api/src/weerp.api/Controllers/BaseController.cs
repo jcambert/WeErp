@@ -78,6 +78,9 @@ namespace weerp.api.Controllers
 
         protected IActionResult Accepted(ICorrelationContext context)
         {
+            if (context == null)
+                throw new ArgumentNullException($"{nameof(BaseController) }->Accepted context cannot be null");
+
             Response.Headers.Add(OperationHeader, $"operations/{context.Id}");
             if (!string.IsNullOrWhiteSpace(context.Resource))
             {
@@ -112,7 +115,7 @@ namespace weerp.api.Controllers
                     Request.Headers[AcceptLanguageHeader].First().ToLowerInvariant() :
                     DefaultCulture;
 
-        private string GetLinkHeader(PagedResultBase result)
+        protected string GetLinkHeader(PagedResultBase result)
         {
             var first = GetPageLink(result.CurrentPage, 1);
             var last = GetPageLink(result.CurrentPage, result.TotalPages);
@@ -138,8 +141,8 @@ namespace weerp.api.Controllers
             var conjunction = string.IsNullOrWhiteSpace(queryString) ? "?" : "&";
             var fullPath = $"{path}{queryString}";
             var pageArg = $"{PageLink}={page}";
-            var link = fullPath.Contains($"{PageLink}=")
-                ? fullPath.Replace($"{PageLink}={currentPage}", pageArg)
+            var link = fullPath.Contains($"{PageLink}=",StringComparison.InvariantCulture)
+                ? fullPath.Replace($"{PageLink}={currentPage}", pageArg, StringComparison.InvariantCulture)
                 : fullPath += $"{conjunction}{pageArg}";
 
             return link;

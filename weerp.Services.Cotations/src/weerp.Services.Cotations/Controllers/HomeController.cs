@@ -1,12 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MicroS_Common;
+using MicroS_Common.Controllers;
+using MicroS_Common.Dispatchers;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace weerp.Services.Cotations.Controllers
 {
     [Route("")]
-    public class HomeController : ControllerBase
+    public class HomeController : BaseController
     {
-
-        [HttpGet]
-        public IActionResult Get() => Ok("WeErp Cotations Service");
+        public HomeController(IDispatcher dispatcher, IConfiguration configuration, IOptions<AppOptions> appOptions) : base(dispatcher, configuration, appOptions)
+        {
+        }
     }
 }

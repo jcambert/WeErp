@@ -19,7 +19,7 @@ namespace weerp.Services.Products
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder
-                    .UseStartup<MyStartup>()
+                    .UseStartup<Startup>()
                     .UseLogging()
                     //.UseVault()
                     //.UseLockbox()

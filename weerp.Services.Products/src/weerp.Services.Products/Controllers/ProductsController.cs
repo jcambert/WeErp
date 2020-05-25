@@ -12,7 +12,7 @@ using weerp.domain.Products.Queries;
 
 namespace weerp.Services.Products.Controllers
 {
-    [Route("Products")]
+    //[Route("Products")]
     public class ProductsController : BaseController
     {
         public ProductsController(IDispatcher dispatcher, IConfiguration config, IOptions<AppOptions> appOptions)
