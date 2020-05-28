@@ -6,11 +6,11 @@ namespace weerp.domain.Products.Domain
     [MongoDocument("product")]
     public class Product : BaseEntity
     {
-        private string _name;
-        private string _vendor;
-        private string _description;
-        private decimal _price;
-        private int _quantity;
+        internal string _name;
+        internal string _vendor;
+        internal string _description;
+        internal decimal _price;
+        internal int _quantity;
 
         
         public string Name { get => _name; private set { _name = value; } }
