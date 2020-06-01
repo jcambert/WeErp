@@ -24,7 +24,7 @@ namespace weerp.domain.Products.Domain
             : base(id)
         {
 
-            SetName(name);
+            Name = name;
             SetDescription(description);
             SetVendor(vendor);
             SetPrice(price);
@@ -34,7 +34,7 @@ namespace weerp.domain.Products.Domain
 
 
 
-        public void SetName(string name) => this.SetProperty(ref _name, name?.Trim()?.ToLowerInvariant(), string.IsNullOrEmpty, "empty_product_name", "Product name cannot be empty.", () => this.SetUpdatedDate());
+        //public void SetName(string name) => this.SetProperty(ref _name, name?.Trim()?.ToLowerInvariant(), string.IsNullOrEmpty, "empty_product_name", "Product name cannot be empty.", () => this.SetUpdatedDate());
 
         public void SetDescription(string description) => this.SetProperty(ref _description, description?.Trim()?.ToLowerInvariant(), string.IsNullOrEmpty, "empty_product_description", "Product description cannot be empty.", () => this.SetUpdatedDate());
 

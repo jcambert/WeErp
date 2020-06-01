@@ -1,0 +1,77 @@
+{
+  "generator-micros": {
+    "runInMainGenerator": true,
+    "api": {
+      "name": "weerp.api",
+      "path": "weerp.api/src/weerp.api",
+      "project": "weerp.api/src/weerp.api/weerp.api.csproj"
+    },
+    "domain": {
+      "name": "weerp.domain",
+      "path": "weerp.domain/src/weerp.domain",
+      "project": "weerp.domain/src/weerp.domain/weerp.domain.csproj"
+    },
+    "services": [
+      {
+        "name": "weerp.Services.Cotations",
+        "path": "weerp.Services.Cotations/src/weerp.Services.Cotations",
+        "project": "weerp.Services.Cotations/src/weerp.Services.Cotations/weerp.Services.Cotations.csproj"
+      },
+      {
+        "name": "WeErpServicesDiscounts",
+        "path": "weerp.Services.Discounts/src/weerp.Services.Discounts",
+        "project": "weerp.Services.Discounts/src/weerp.Services.Discounts/WeErpServicesDiscounts.csproj"
+      },
+      {
+        "name": "weerp.Services.Identity",
+        "path": "weerp.Services.Identity/src/weerp.Services.Identity",
+        "project": "weerp.Services.Identity/src/weerp.Services.Identity/weerp.Services.Identity.csproj"
+      },
+      {
+        "name": "weerp.Services.Operations",
+        "path": "weerp.services.Operations/src/weerp.Services.Operations",
+        "project": "weerp.services.Operations/src/weerp.Services.Operations/weerp.Services.Operations.csproj"
+      },
+      {
+        "name": "weerp.Services.Products",
+        "path": "weerp.Services.Products/src/weerp.Services.Products",
+        "project": "weerp.Services.Products/src/weerp.Services.Products/weerp.Services.Products.csproj"
+      },
+      {
+        "name": "weerp.Services.Settings",
+        "path": "weerp.Services.Settings/src/weerp.Services.Settings",
+        "project": "weerp.Services.Settings/src/weerp.Services.Settings/weerp.Services.Settings.csproj"
+      },
+      {
+        "name": "weerp.Services.SignalR",
+        "path": "weerp.Services.SignalR/src/WeErp.Services.SignalR",
+        "project": "weerp.Services.SignalR/src/WeErp.Services.SignalR/weerp.Services.SignalR.csproj"
+      }
+    ],
+    "toto": "titi",
+    "subdoc": false,
+    "author": {
+      "name": "Ambert Jean-Christophe",
+      "email": "jc.ambert@free.fr",
+      "url": "http://jc.ambert.free.fr"
+    },
+    "changeCase": {},
+    "availables": [
+      "micros:domain",
+      "micros:handler",
+      "micros:api"
+    ],
+    "answers": {
+      "appname": "weerp",
+      "domain": "tier"
+    },
+    "micros": true,
+    "generators": [
+      "micros:api"
+    ],
+    "promptValues": {
+      "appname": "weerp",
+      "domain": "tier"
+    }
+  }
+}
