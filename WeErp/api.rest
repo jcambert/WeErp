@@ -1,7 +1,7 @@
 @apiUrl = http://localhost:8000
 @identityServiceUrl = http://localhost:5000
 #http://localhost:50895
-@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ZGM0NzAyMWNhYWM0MTJhOWIxMjk3YTU4NzgwZDcyNCIsInVuaXF1ZV9uYW1lIjoiNmRjNDcwMjFjYWFjNDEyYTliMTI5N2E1ODc4MGQ3MjQiLCJqdGkiOiI5MGZlMGYwYS0wOTI4LTRjMmMtYWYzZS1mY2Q2N2RmN2ZlNTAiLCJpYXQiOiIxNTkwNzQ0Njk0NTUwIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1OTA3NDQ2OTQsImV4cCI6MTU5MDkyNDY5NCwiaXNzIjoiZHNob3AtaWRlbnRpdHktc2VydmljZSJ9.O18c2CLqVBvbJUjgwl7NebWt3g0hmGLVo5s1HU4d8s4
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhODFmYTBlM2FmZjI0NTQ2YWI5MDcxYTE3MmE0Njk5NCIsInVuaXF1ZV9uYW1lIjoiYTgxZmEwZTNhZmYyNDU0NmFiOTA3MWExNzJhNDY5OTQiLCJqdGkiOiI0MTNiMDY1YS0wMzY1LTQ4NTUtODUxOS05NzM2YmZmOGU0NTkiLCJpYXQiOiIxNTkxNDMzNzk3MjYxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1OTE0MzM3OTcsImV4cCI6MTU5MTYxMzc5NywiaXNzIjoiZHNob3AtaWRlbnRpdHktc2VydmljZSJ9.MhLHvosfhf6ruDcf2EBSDFNhmCCMCUBuGqVhpgQEIyo
 @refreshToken = AQAAAAEAACcQAAAAEOuaeRW0X60RxIe1FZ5gzbopwEbT3FScppWiK4qVkqlqpVmHtsmzjkLHZw5NxQ
 @operationId = xxxxxxxxxxxxxxxxxx
 @productId = xxxxxxxxxxxxxxxxxx
@@ -90,7 +90,7 @@ authorization: Bearer {{accessToken}}
 content-type: application/json
 
 {
-	"name": "   My product 447 ",
+	"name": "   My product 445 ",
 	"description": "My product description",
 	"vendor": "My company",
 	"price": 2000,

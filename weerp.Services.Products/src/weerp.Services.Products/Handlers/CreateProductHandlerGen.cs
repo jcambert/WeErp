@@ -40,12 +40,13 @@ namespace weerp.Services.Products.Handlers
         /// </summary>
         /// <param name="command">The command in wich information can be use do check if the model exist in database</param>
         /// <returns>Nothing</returns>
-        protected override async Task CheckExist(Product product)
+        protected override async Task<bool> CheckExist(Product product)
         {
             if (await Repository.ExistsAsync(p=> p.Name == product.Name))
             {
                 throw new MicroSException("product_already_exists",$"Product: '{product.Name}' already exists.");
             }
+            return true;
            
         }
         #endregion

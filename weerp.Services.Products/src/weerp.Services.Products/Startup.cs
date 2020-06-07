@@ -1,5 +1,7 @@
-﻿using Consul;
+﻿#define SERVICE_PRODUCT
+using Consul;
 using MicroS_Common;
+using MicroS_Common.Dispatchers;
 using MicroS_Common.Domain;
 using MicroS_Common.RabbitMq;
 using MicroS_Common.Services.Service;
@@ -32,8 +34,13 @@ namespace weerp.Services.Products
 
         protected override void SubscribeEventAndMessageBus(IBusSubscriber bus)
         {
-            base.SubscribeEventAndMessageBus(bus);
-            bus.SubscribeCommand<CreateProduct>(onError: (c, e) => new CreateProductRejected(c.Id, e.Message, e.Code));
+            // base.SubscribeEventAndMessageBus(bus);
+            if (DomainType != null)
+            {
+                bus.SubscribeAllCommands(true, DomainType.Assembly);
+                //bus.SubscribeOnRejected(DomainType.Assembly);
+            }
+            //bus.SubscribeCommand<CreateProduct>(onError: (c, e) => new CreateProductRejected(c.Id, e.Message, e.Code));
         }
         public override void ConfigureServices(IServiceCollection services)
         {

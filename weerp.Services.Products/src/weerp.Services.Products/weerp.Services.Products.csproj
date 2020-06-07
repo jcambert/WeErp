@@ -14,10 +14,4 @@
     <ProjectReference Include="..\..\..\weerp.domain\src\weerp.domain\weerp.domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Resources\product.fr.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-
 </Project>

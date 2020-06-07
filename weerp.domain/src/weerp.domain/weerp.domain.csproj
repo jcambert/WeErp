@@ -13,4 +13,19 @@
     <ProjectReference Include="..\..\..\..\MicroS-Common\src\MicroS-Common\MicroS-Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Resources\Products\Domain\Product.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Product.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Products\Domain\Product.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Product.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

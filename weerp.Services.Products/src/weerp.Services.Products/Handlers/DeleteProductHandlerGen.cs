@@ -3,6 +3,7 @@ using MicroS_Common.Handlers;
 using MicroS_Common.RabbitMq;
 using MicroS_Common.Repository;
 using MicroS_Common.Types;
+using System;
 using System.Threading.Tasks;
 using weerp.domain.Products.Domain;
 using weerp.domain.Products.Messages.Commands;
@@ -34,12 +35,13 @@ namespace weerp.Services.Products.Handlers
         /// </summary>
         /// <param name="command">The command in wich information can be use do check if the model exist in database</param>
         /// <returns>Nothing</returns>
-        protected override async Task CheckExist(Product product)
+        protected override async Task<bool> CheckExist(Guid id)
         {
-            if (!await Repository.ExistsAsync(product.Id))
+            if (!await base.CheckExist(id))
             {
-                throw new MicroSException("product_not_found",$"Product: '{product.Id}'  was not found.");
+                throw new MicroSException("product_not_found", $"Product: '{id}'  was not found.");
             }
+            return true;
 
         }
         #endregion
@@ -53,7 +55,8 @@ namespace weerp.Services.Products.Handlers
         /// <returns></returns>
         public override async Task HandleAsync(DeleteProduct command, ICorrelationContext context)
         {
-            await base.HandleAsync(command, context);
+            //await base.HandleAsync(command, context);
+            await CheckExist(command.Id);
             await Repository.DeleteAsync(command.Id);
             await BusPublisher.PublishAsync(CreateEvent<ProductDeleted>(command) , context);
 

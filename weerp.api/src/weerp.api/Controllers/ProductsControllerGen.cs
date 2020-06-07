@@ -67,8 +67,8 @@ namespace weerp.api.Controllers
         /// <param name="command">The Create Command</param>
         /// <returns>Accepted response: The the operation Service</returns>
         [HttpPost]
-        public async Task<IActionResult> Post(CreateProduct command)
-            => await SendAsync(command.BindId(c => c.Id,_logger),  resourceId: command.Id, resource: "products");
+        public  Task<IActionResult> Post(CreateProduct command)
+            =>  SendAsync(command.BindId(c => c.Id,_logger),  resourceId: command.Id, resource: "products");
 
         /// <summary>
         /// Update a product
@@ -77,8 +77,8 @@ namespace weerp.api.Controllers
         /// <param name="command">The Update Command</param>
         /// <returns>Accepted response: The the operation Service</returns>
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(Guid id, UpdateProduct command)
-            => await SendAsync(command.Bind(c => c.Id, id),resourceId: command.Id, resource: "products");
+        public Task<IActionResult> Put(Guid id, UpdateProduct command)
+            =>  SendAsync(command.Bind(c => c.Id, id),resourceId: command.Id, resource: "products");
 
         /// <summary>
         /// Delete a product
@@ -86,8 +86,8 @@ namespace weerp.api.Controllers
         /// <param name="id">the id of product to delete</param>
         /// <returns>Accepted response: The the operation Service</returns>
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(Guid id)
-            => await SendAsync(new DeleteProduct(id));
+        public  Task<IActionResult> Delete(Guid id)
+            =>  SendAsync(new DeleteProduct(id),resourceId:id,resource:"products");
 
         #endregion
     }

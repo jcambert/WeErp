@@ -1,9 +1,10 @@
-﻿using MicroS_Common.Messages;
+﻿using MicroS_Common.Domain;
 using System;
+using weerp.domain.Products.Messages.Events;
 
 namespace weerp.domain.Products.Messages.Commands
 {
-    
+    [OnRejected(typeof(CreateProductRejected))]
     public class CreateProduct : ProductBaseCommand
     {
         public override Guid Id { get; set; }

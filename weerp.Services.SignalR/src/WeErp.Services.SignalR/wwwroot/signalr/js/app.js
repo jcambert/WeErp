@@ -3,12 +3,16 @@
     const $jwt = document.getElementById("jwt");
     const $connect = document.getElementById("connect");
     const $disconnect = document.getElementById("disconnect");
+    const $clear = document.getElementById("clear");
     const $messages = document.getElementById("messages");
     const connection = new signalR.HubConnectionBuilder()
         .withUrl('http://localhost:5007/micros')
         .configureLogging(signalR.LogLevel.Information)
         .build();
     console.dir(connection);
+    $clear.onclick = function () {
+        clearMessage();
+    }
     $disconnect.onclick = function () {
         connection.stop();
     }
@@ -63,6 +67,7 @@
     function toggleButton(connected) {
         $connect.style.visibility = !connected? "visible" : "hidden";
         $disconnect.style.visibility = connected ? "visible" : "hidden";
+        $clear.style.visibility = connected ? "visible" : "hidden";
     }
     function appendMessage(message, type, data) {
         var dataInfo = "";
@@ -70,5 +75,8 @@
             dataInfo += "<div>" + JSON.stringify(data) + "</div>";
         }
         $messages.innerHTML += `<li class="list-group-item list-group-item-${type}">${message} ${dataInfo}</li>`;
+    }
+    function clearMessage() {
+        $messages.innerHTML = ``;
     }
 })();

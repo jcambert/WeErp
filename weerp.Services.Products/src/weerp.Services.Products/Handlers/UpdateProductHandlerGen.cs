@@ -3,6 +3,7 @@ using MicroS_Common.Handlers;
 using MicroS_Common.RabbitMq;
 using MicroS_Common.Repository;
 using MicroS_Common.Types;
+using System;
 using System.Threading.Tasks;
 using weerp.domain.Products.Domain;
 using weerp.domain.Products.Messages.Commands;
@@ -32,12 +33,13 @@ namespace weerp.Services.Products.Handlers
         /// </summary>
         /// <param name="command">The command in wich information can be use do check if the model exist in database</param>
         /// <returns>Nothing</returns>
-        protected override async Task CheckExist(Product product)
+        protected override async Task<bool> CheckExist(Guid id)
         {
-            if (!await Repository.ExistsAsync(product.Id))
+            if (!await base.CheckExist(id))
             {
-                throw new MicroSException("product_not_found",$"Product with id: '{product.Id}' was not found.");
+                throw new MicroSException("product_not_found",$"Product with id: '{id}' was not found.");
             }
+            return true;
         }
         #endregion
 

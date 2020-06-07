@@ -20,7 +20,7 @@ namespace weerp.domain.Products.Validators
         public void IsValide(Product model)
         {
             _context.Clear();
-            model.Validate(ref model._name,model=> model.Name?.Trim()?.ToLowerInvariant(), string.IsNullOrEmpty, "empty_product_name", _localizer["empty_product_name"], _context);
+            model.Validate(ref model._name,model=> model.Name?.Trim(), string.IsNullOrEmpty, "empty_product_name", _localizer["empty_product_name"], _context);
             if (!_context.IsValid)
                 throw new MicroSException("validation", _context.ToString());
         

@@ -1,7 +1,10 @@
-﻿using System;
+﻿using MicroS_Common.Domain;
+using System;
+using weerp.domain.Products.Messages.Events;
 
 namespace weerp.domain.Products.Messages.Commands
 {
+    [OnRejected(typeof(DeleteProductRejected))]
     public class DeleteProduct : ProductBaseCommand
     {
         public override Guid Id { get; set; }
