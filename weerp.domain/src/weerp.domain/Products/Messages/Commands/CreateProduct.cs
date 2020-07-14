@@ -1,5 +1,7 @@
 ﻿using MicroS_Common.Domain;
+using MongoDB.Bson.Serialization.Serializers;
 using System;
+using WeCommon;
 using weerp.domain.Products.Messages.Events;
 
 namespace weerp.domain.Products.Messages.Commands
@@ -14,10 +16,11 @@ namespace weerp.domain.Products.Messages.Commands
         public decimal Price { get; }
         public int Quantity { get; }
 
+        public Property<double> Taxes { get; }
 
         public CreateProduct(Guid id, string name,
             string description, string vendor,
-            decimal price, int quantity) : base()
+            decimal price, int quantity,Property<double> taxes) : base()
         {
             Id = id;
             Name = name;
@@ -25,6 +28,7 @@ namespace weerp.domain.Products.Messages.Commands
             Vendor = vendor;
             Price = price;
             Quantity = quantity;
+            Taxes = taxes;
         }
     }
 }

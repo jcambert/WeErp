@@ -1,6 +1,5 @@
 ﻿using Chronicle;
 using MicroS_Common.RabbitMq;
-using System;
 using System.Threading.Tasks;
 using weerp.domain.Orders.Messsages.Commands;
 using weerp.domain.Orders.Messsages.Events;
@@ -23,15 +22,15 @@ namespace MicroS.Services.Operations.Sagas
         public ApproveOrderSaga(IBusPublisher busPublisher)
             => _busPublisher = busPublisher;
 
-        public override /*Guid*/SagaId ResolveId(object message, ISagaContext context)
+        public override SagaId ResolveId(object message, ISagaContext context)
         {
             switch (message)
             {
-                case OrderCreated m: return SagaId.NewSagaId();//m.Id;
-                case ProductsReserved m: return SagaId.NewSagaId();//m.Id;
-                case ReserveProductsRejected m: return SagaId.NewSagaId();//m.Id;
-                case OrderApproved m: return SagaId.NewSagaId();//m.Id;
-                case ApproveOrderRejected m: return SagaId.NewSagaId();//m.Id;
+                case OrderCreated m: return SagaId.NewSagaId();
+                case ProductsReserved m: return SagaId.NewSagaId();
+                case ReserveProductsRejected m: return SagaId.NewSagaId();
+                case OrderApproved m: return SagaId.NewSagaId();
+                case ApproveOrderRejected m: return SagaId.NewSagaId();
                 default: return base.ResolveId(message, context);
             }
         }

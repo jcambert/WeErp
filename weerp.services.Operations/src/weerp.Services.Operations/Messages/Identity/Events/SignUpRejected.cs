@@ -4,7 +4,7 @@ using System;
 
 namespace MicroS.Services.Operations.Messages.Identity.Events
 {
-    [MessageNamespace("identity")]
+  /*  [MessageNamespace("identity")]
     public class SignUpRejected : IRejectedEvent
     {
         public Guid UserId { get; }
@@ -18,5 +18,5 @@ namespace MicroS.Services.Operations.Messages.Identity.Events
             Reason = reason;
             Code = code;
         }
-    }
+    }*/
 }

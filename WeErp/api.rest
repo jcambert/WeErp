@@ -1,7 +1,7 @@
 @apiUrl = http://localhost:8000
 @identityServiceUrl = http://localhost:5000
 #http://localhost:50895
-@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhODFmYTBlM2FmZjI0NTQ2YWI5MDcxYTE3MmE0Njk5NCIsInVuaXF1ZV9uYW1lIjoiYTgxZmEwZTNhZmYyNDU0NmFiOTA3MWExNzJhNDY5OTQiLCJqdGkiOiI0MTNiMDY1YS0wMzY1LTQ4NTUtODUxOS05NzM2YmZmOGU0NTkiLCJpYXQiOiIxNTkxNDMzNzk3MjYxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1OTE0MzM3OTcsImV4cCI6MTU5MTYxMzc5NywiaXNzIjoiZHNob3AtaWRlbnRpdHktc2VydmljZSJ9.MhLHvosfhf6ruDcf2EBSDFNhmCCMCUBuGqVhpgQEIyo
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmMzA1MDAyYWFlYzg0NDEyYjcyNWEzYTVhMjdhYTg4YSIsInVuaXF1ZV9uYW1lIjoiZjMwNTAwMmFhZWM4NDQxMmI3MjVhM2E1YTI3YWE4OGEiLCJqdGkiOiJiNTlkYTIzNy02ZTdiLTQ2M2QtYTQ4MC02N2NmMTM5YzBmMTIiLCJpYXQiOiIxNTk0MzgxNzA5OTUzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE1OTQzODE3MDksImV4cCI6MTU5NDU2MTcwOSwiaXNzIjoiZHNob3AtaWRlbnRpdHktc2VydmljZSJ9.97sY_VYVOTJ2L9T9e2Ow_-3qsjo14vussSly9lrpTAE
 @refreshToken = AQAAAAEAACcQAAAAEOuaeRW0X60RxIe1FZ5gzbopwEbT3FScppWiK4qVkqlqpVmHtsmzjkLHZw5NxQ
 @operationId = xxxxxxxxxxxxxxxxxx
 @productId = xxxxxxxxxxxxxxxxxx
@@ -40,6 +40,14 @@ content-type: application/json
 	"password": {{pwd}}
 }
 
+### Signin rejected
+POST {{identityServiceUrl}}/sign-in
+content-type: application/json
+
+{
+	"email": "toto@titi.fr",
+	"password": "12345678"
+}
 
 # Once authenticated, copy the obtained accessToken and update the @accessToken parameter above.
 
@@ -94,10 +102,14 @@ content-type: application/json
 	"description": "My product description",
 	"vendor": "My company",
 	"price": 2000,
-	"quantity": 10
+	"quantity": 10,
+	"taxes":{
+		"fr":1.2,
+		"es":1.05
+	}
 }
 
-### Simulate rejected creation product (just remove vendor)
+### Simulate rejected creation product (just remove vendor or name empty)
 POST {{apiUrl}}/products
 authorization: Bearer {{accessToken}}
 content-type: application/json
@@ -109,7 +121,7 @@ content-type: application/json
 	"quantity": 10,
 	"vendor":"toto"
 }
-@productId=e85e8205-bb0d-4835-bb05-0a8533ef6faa
+@productId=42ce7234-573d-4b3d-8a90-469b63714d94
 ### Get products list
 GET {{apiUrl}}/products
 
@@ -123,10 +135,11 @@ authorization: Bearer {{accessToken}}
 content-type: application/json
 
 {
-	"name": "My product updated 1",
+	"name": "My product updated 3",
 	"description": "My product updated description 1",
 	"price": 3500,
-	"quantity": 15
+	"quantity": 15,
+	"vendor":"titi"
 }
 
 ### Delete a product if needed

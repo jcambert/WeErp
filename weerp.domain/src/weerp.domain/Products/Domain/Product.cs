@@ -1,6 +1,9 @@
 ﻿using System;
 using MicroS_Common.Mongo;
 using MicroS_Common.Types;
+using MongoDB.Bson.Serialization.Attributes;
+using WeCommon;
+
 namespace weerp.domain.Products.Domain
 {
     [MongoDocument("product")]
@@ -18,6 +21,9 @@ namespace weerp.domain.Products.Domain
         public string Vendor { get => _vendor; private set { _vendor = value; } }
         public decimal Price { get => _price; private set { _price = value; } }
         public int Quantity { get => _quantity; private set { _quantity = value; } }
+
+        [BsonSerializer(typeof(DynamicSerializer<dynamic, double>))]
+        public dynamic Taxes { get; set; } = new Property<double>();
 
         public Product(Guid id, string name, string description, string vendor,
             decimal price, int quantity)

@@ -10,7 +10,7 @@ namespace weerp.domain.Products.Mapping
     {
         public ProductProfile()
         {
-            CreateMap<Product, ProductDto>().ConstructUsing(e => new ProductDto() { Id = e.Id, Name = e.Name, Description = e.Description, Price = e.Price, Quantity = e.Quantity, Vendor = e.Vendor });
+            CreateMap<Product, ProductDto>().ConstructUsing(e => new ProductDto() { Id = e.Id, Name = e.Name, Description = e.Description, Price = e.Price, Quantity = e.Quantity, Vendor = e.Vendor,Taxes=e.Taxes });
             CreateMap<CreateProduct, Product>().ConstructUsing(e => new Product(e.Id, e.Name, e.Description, e.Vendor, e.Price, e.Quantity));
             CreateMap<CreateProduct, ProductCreated>().ConstructUsing(e => new ProductCreated(e.Id, e.Name, e.Description, e.Vendor, e.Price, e.Quantity));
             CreateMap<UpdateProduct, ProductUpdated>().ConstructUsing(e => new ProductUpdated(e.Id, e.Name, e.Description, e.Vendor, e.Price, e.Quantity));

@@ -17,12 +17,13 @@ namespace weerp.Services.Settings.Handlers
         {
         }
 
-        protected override async Task CheckExist(Setting setting)
+        protected override async Task<bool> CheckExist(Setting setting)
         {
             if (await(Repository as ISettingsRepository).ExistsAsync(setting.Numero))
             {
                 throw new MicroSException("setting_already_exists",$"Setting: '{setting.Numero}' already exists.");
             }
+            return true;
         }
 
         public override async Task HandleAsync(CreateSetting command, ICorrelationContext context)
